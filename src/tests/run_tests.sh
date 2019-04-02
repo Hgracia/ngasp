@@ -20,9 +20,10 @@ NO_COLOR='\033[0m'
 TEST_OK='Result: Pass' 
 TEST_ERROR='Result: Fail'
 CLEANING_TEST='Cleaning test...'
-MSTATSPOP_EXEC='./mstatspop'
-NGASP_EXEC='../backend/Debug/ngaSP_backend'
-INPUT_FILES_PATH='../examples'
+MSTATSPOP_EXEC='/develop/webapp/bin/mstatspop'
+NGASP_EXEC='/develop/webapp/bin/ngasp'
+#NGASP_EXEC='../backend/Debug/ngaSP_backend'
+INPUT_FILES_PATH='/develop/src/tests/examples'
 NGASP_DOESNOT_EXIST='ngaSP executable not found. It is expected here: '
 NGASP_EMPTY_FILE='Empty output from ngaSP'
 SKIP_CLEAN_PREVIOUS_TESTS="Atention: Previous mstatspop outputs WON'T BE regenerated"
@@ -142,7 +143,7 @@ main()
 		testDescription='Run for a single population'
 		fileParams='-f fasta -i'
 		inputFile=$INPUT_FILES_PATH/MC1R_PigsOutg_aligned.fas
-		experimentParams='-N 1 48'
+		experimentParams='-N 1 48 -n MC1R.txt'
 		mstatspopOutputFile=./test$numTest/MC1R_PigsOutg_One_Pop_Total.txt
 		ngaSPOutputFile=./test$numTest/MC1R_PigsOutg_One_Pop_Total_ngaSP.txt
 		runTest
