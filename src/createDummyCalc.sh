@@ -71,7 +71,7 @@ echo "" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
 echo "private:" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
 echo "  // Step 2 - Declare your inputs and outputs:" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
 echo "  // Inputs" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
-echo "  CDataCharVector *vector;" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
+echo "  CDataCharVector *DNAvector;" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
 echo "  CDataBoolean *percentage;" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
 echo "  // Outputs" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
 echo "  CDataFloat *total;" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.h
@@ -112,7 +112,7 @@ echo "               KeyString::UNDEFINED_STRING) {" >> ./source/backend/calcula
 echo "" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "  // Step 3 - Define here the inputs and outputs of your calculation:" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "  BEGIN_CALCULATION_INTERFACE_DEFINITION" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
-echo "    SET_INPUT_INFO(vector,										// Variable" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
+echo "    SET_INPUT_INFO(DNAvector,										// Variable" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "    				 UNDEFINED_STRING,								// Group" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "    				 CALC_${MY_Calc}_VECTOR,								// Short Name" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "    				 CALC_${MY_Calc}_VECTOR_LONG,					// Long Name" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
@@ -154,7 +154,7 @@ echo "" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "void CCalc${MY_Calc}::Prepare(void) {" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "  // Step 4 - Get your inputs and outputs:" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "  DM_GET_INPUTS" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
-echo "    DM_INPUT(vector)" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
+echo "    DM_INPUT(DNAvector)" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "    DM_INPUT(percentage)" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "  DM_GET_OUTPUTS" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "    DM_OUTPUT(total)" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
@@ -173,8 +173,8 @@ echo "  int64_t C = 0" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "  int64_t G = 0" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "  int64_t A = 0" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
-echo "  for (int64_t i = 0; i < vector->Size(); i++) {" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
-echo "    switch(vector[i]) {" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
+echo "  for (int64_t i = 0; i < DNAvector->Size(); i++) {" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
+echo "    switch(DNAvector[i]) {" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "      case ’T’:T++;break;" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "      case ’C’:C++;break;" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
 echo "      case ’G’:G++;break;" >> ./source/backend/calculations/Calc/CCalc${MY_Calc}.cpp
